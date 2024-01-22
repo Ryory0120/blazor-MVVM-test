@@ -1,0 +1,29 @@
+﻿@page "/MVVMTest"
+@using BlazorAppWASMTest.MVVM.ViewModel
+
+<PageTitle>MVVMTest</PageTitle>
+
+<h3>MVVMTest</h3>
+
+@code {
+    private MVVMTestViewModel mVVMTestViewModel = new MVVMTestViewModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(100);
+        Console.WriteLine("MVVMTestVieModel InitializeAsync Call");
+        await this.mVVMTestViewModel.InitializeAsync();
+        Console.WriteLine("MVVMTestVieModel InitializeAsync CallBack");
+        await testTask();
+
+    }
+
+    public async Task testTask()
+    {
+        Console.WriteLine("testTask Start.");
+        await Task.Delay(1000);
+        Console.WriteLine("testTask End.");
+        return;
+    }
+
+}
